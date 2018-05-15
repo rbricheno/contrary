@@ -1,0 +1,16 @@
+# RADIUS client configuration
+radius_nas_identifier: Catweazle
+radius_client_bind_ip: a.b.c.d
+radius_schedule: round-robin
+radius_server_timeout: 3
+radius_append_realm: True
+radius_default_realm: wireless.inst.example.com
+radius_servers:
+  radius0.inst.example.com:
+    # !b means that the following value will be converted to bytes internally using value.encode('utf-8')
+    # RADIUS shared secrets are represented as bytes, so must be preceded with th '!b' tag.
+    secret: !b xxxx
+    auth_port: 1812
+  radius1.inst.example.com:
+    secret: !b yyyy
+    auth_port: 1812
